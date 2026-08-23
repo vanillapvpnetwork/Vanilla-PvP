@@ -7,6 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+
+    <!-- Firebase SDK: shared database so everyone sees the same live leaderboard -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     
     <style>
         :root {
@@ -1196,12 +1200,49 @@
             sword: [], axe: [], diapot: [], nethpot: [], uhc: [], smp: [], mace: [], spearmace: []
         };
 
-        let leaderboardData = JSON.parse(localStorage.getItem('vanilla_pvp_leaderboard')) || defaultLeaderboardData;
+        // ====== FIREBASE SETUP ======
+        // Replace these values with YOUR OWN Firebase project config
+        // (Firebase Console > Project Settings > General > Your apps > SDK setup and configuration)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBv3kFxsqMU6rKW-gzeL-atjAm-i8prins",
+            authDomain: "vanillapvp-c3076.firebaseapp.com",
+            projectId: "vanillapvp-c3076",
+            storageBucket: "vanillapvp-c3076.firebasestorage.app",
+            messagingSenderId: "197021864475",
+            appId: "1:197021864475:web:d82bf52273f53e0271debe"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const leaderboardDocRef = db.collection('vanillapvp').doc('leaderboardData');
+
+        let leaderboardData = defaultLeaderboardData; // shown instantly while Firestore loads
         let currentActiveTab = 'overall';
 
         function saveToStorage() {
-            localStorage.setItem('vanilla_pvp_leaderboard', JSON.stringify(leaderboardData));
+            leaderboardDocRef.set(leaderboardData).catch(err => {
+                console.error("Error saving to database:", err);
+                alert("Couldn't save changes to the shared database. Check your internet connection and Firebase setup.");
+            });
         }
+
+        // Real-time listener: fires immediately with current data, then again
+        // any time ANYONE (you, via the admin panel) changes it. Every visitor's
+        // page updates live, automatically, no refresh needed.
+        leaderboardDocRef.onSnapshot((doc) => {
+            if (doc.exists) {
+                leaderboardData = doc.data();
+            } else {
+                // First time ever loading — seed the database with the starter data
+                leaderboardDocRef.set(defaultLeaderboardData);
+                leaderboardData = defaultLeaderboardData;
+            }
+            renderLeaderboard(currentActiveTab);
+            if (document.getElementById('admin-fullscreen-hud')?.classList.contains('active')) {
+                populateAdminPlayerDropdown();
+            }
+        }, (error) => {
+            console.error("Database connection error:", error);
+        });
 
         function calculateTitle(points) {
             if (points >= 400) return "Combat Grandmaster";
@@ -1548,8 +1589,6 @@
         });
 
         document.addEventListener("DOMContentLoaded", function() {
-            renderLeaderboard('overall');
-
             const properObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
