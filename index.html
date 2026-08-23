@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vanilla PvP | Network & Collection</title>
+    <title>Vanilla PvP | Network</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
     
     <style>
         :root {
+            /* Black and Gray Theme (Not pure #000000) */
             --bg-main: #121214;
             --card-bg: rgba(22, 22, 26, 0.95);
             --card-border: rgba(255, 255, 255, 0.08);
@@ -21,12 +22,14 @@
             --text-muted: #9ca3af;
             --text-subtle: #6b7280;
 
+            /* Region Colors */
             --region-na: #ef4444;
             --region-eu: #3b82f6;
             --region-as: #a855f7;
             --region-oce: #10b981;
             --region-sa: #f59e0b;
 
+            /* Team Role Glow Colors */
             --role-owner: #3b82f6;
             --role-admin: #ec4899;
             --role-tester: #a855f7;
@@ -48,15 +51,16 @@
         body {
             color: var(--text-main);
             background-color: var(--bg-main);
+            /* Background pattern inspired by reference image 1 */
             background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
             background-size: 24px 24px;
             min-height: 100vh;
             padding-top: 2rem;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
+        /* MATTE DARK FLOATING NAV */
         nav {
             display: flex;
             justify-content: space-between;
@@ -120,7 +124,6 @@
         .page-section {
             margin-bottom: 5rem;
             scroll-margin-top: 100px;
-            width: 100%;
         }
 
         .morph-section {
@@ -134,6 +137,7 @@
             transform: translateY(0) scale(1);
         }
 
+        /* HERO SECTION */
         .welcome-hero {
             text-align: center;
             margin-bottom: 3.5rem;
@@ -161,57 +165,7 @@
             margin-top: 0.5rem;
         }
 
-        .gallery-section {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto 5rem auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .gallery-section h1 {
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            text-align: center;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            width: 100%;
-        }
-
-        .card {
-            background-color: #1e1e1e;
-            border-radius: 16px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--card-border);
-            transition: transform 0.2s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .card img {
-            width: 100%;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            margin: 0;
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--text-muted);
-        }
-
+        /* CONTAINER CARD */
         .mctiers-container {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
@@ -224,6 +178,7 @@
             margin-right: auto;
         }
 
+        /* TABS HEADER */
         .tabs-wrapper {
             display: flex;
             justify-content: center;
@@ -269,6 +224,7 @@
             border-color: rgba(255, 255, 255, 0.2);
         }
 
+        /* ACTIVE THEMES */
         .tab-btn.active.theme-overall { background: #262211; border-color: #ffd700; color: #ffd700; box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
         .tab-btn.active.theme-crystal { background: #22182b; border-color: #a855f7; color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); }
         .tab-btn.active.theme-sword { background: #16202b; border-color: #3b82f6; color: #3b82f6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
@@ -280,6 +236,7 @@
         .tab-btn.active.theme-mace { background: #222228; border-color: #ffffff; color: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
         .tab-btn.active.theme-spearmace { background: #222228; border-color: #ffffff; color: #ffffff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
 
+        /* OVERALL TABLE STYLES */
         .table-head {
             display: grid;
             grid-template-columns: 80px 2fr 1fr 3fr;
@@ -319,6 +276,7 @@
             align-items: center;
         }
 
+        /* RANK BOX STYLES */
         .rank-box {
             display: flex;
             align-items: center;
@@ -344,6 +302,7 @@
         .player-name { font-size: 1rem; color: #fff; }
         .player-title { font-size: 0.75rem; color: var(--text-subtle); }
 
+        /* REGION BADGES */
         .region-badge {
             display: inline-block;
             padding: 0.25rem 0.7rem;
@@ -386,6 +345,7 @@
         .tier-color-3 { color: #cd7f32 !important; }
         .tier-color-4 { color: #ffffff !important; }
 
+        /* GAMEMODE GRID VIEW */
         .tier-grid-wrapper {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -430,6 +390,7 @@
         .tier-column-header.t4 { color: #b3b3b3; }
         .tier-column-header.t5 { color: #6b7280; }
 
+        /* GAMEMODE PLAYER CARD WITH SLIDING REGION STRIPE HOVER EFFECT */
         .gamemode-player-card {
             position: relative;
             background: #121214;
@@ -450,6 +411,7 @@
             transform: translateY(-1px);
         }
 
+        /* Sliding Region Stripe Box */
         .region-stripe-box {
             position: relative;
             width: 8px;
@@ -465,7 +427,7 @@
         }
 
         .gamemode-player-card:hover .region-stripe-box {
-            width: 52px;
+            width: 52px; /* slides open to show region text like image 2 */
         }
 
         .region-indicator-bg {
@@ -493,6 +455,7 @@
             opacity: 1;
         }
 
+        /* Color variations for regions */
         .stripe-na { background-color: var(--region-na); }
         .stripe-eu { background-color: var(--region-eu); }
         .stripe-as { background-color: var(--region-as); }
@@ -535,6 +498,7 @@
             padding-right: 12px;
         }
 
+        /* MODAL POPUPS */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -732,6 +696,7 @@
             line-height: 1.7;
         }
 
+        /* TEAM GRID */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -773,6 +738,7 @@
         .role-tester { color: var(--role-tester); background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.35); }
         .role-dev { color: var(--role-dev); background: rgba(234, 179, 8, 0.12); border: 1px solid rgba(234, 179, 8, 0.35); }
 
+        /* FOOTER ADMIN BUTTON */
         footer {
             max-width: 1280px;
             width: calc(100% - 3rem);
@@ -801,6 +767,9 @@
             border-color: #3b82f6;
         }
 
+        /* ==========================================
+           ADMIN PANEL HUD (Fixed sizing, no scrollbar crop)
+           ========================================== */
         .admin-fullscreen-hud {
             position: fixed;
             top: 0;
@@ -830,9 +799,9 @@
             border-radius: 28px;
             width: 100%;
             max-width: 960px;
-            max-height: 85vh;
-            overflow-y: auto;
-            scrollbar-width: none;
+            max-height: 85vh; /* Fits comfortably on screen without cutting top/bottom corners */
+            overflow-y: auto;  /* Allows safe viewing if screen is small */
+            scrollbar-width: none; /* Hide scrollbar visually */
             padding: 2.2rem 2.5rem;
             position: relative;
             box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
@@ -841,7 +810,7 @@
         }
 
         .admin-hud-container::-webkit-scrollbar {
-            display: none;
+            display: none; /* Hide scrollbar for Chrome/Safari */
         }
 
         .admin-fullscreen-hud.active .admin-hud-container {
@@ -919,6 +888,7 @@
             border-top: 1px solid var(--card-border);
         }
 
+        /* REFERENCE TABLES BOX */
         .admin-reference-panel {
             background: #111114;
             border: 1px solid var(--card-border);
@@ -967,7 +937,6 @@
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#team">Team</a>
-            <a href="#gallery">Collection</a>
         </div>
     </nav>
 
@@ -978,43 +947,26 @@
             <p class="hub-subtitle">The official competitive Minecraft combat rankings & tiering network.</p>
         </section>
 
-        <!-- MCTIERS TABS & RANKINGS CONTAINER -->
         <section class="mctiers-container">
             <div class="tabs-wrapper">
                 <div class="tabs-header">
-                    <button class="tab-btn active theme-overall" onclick="switchTab(this, 'overall')"><img src="Overall.webp" alt="Overall"><span>Overall</span></button>
-                    <button class="tab-btn theme-crystal" onclick="switchTab(this, 'crystal')"><img src="Crystal.webp" alt="Crystal"><span>Crystal</span></button>
-                    <button class="tab-btn theme-sword" onclick="switchTab(this, 'sword')"><img src="Sword.webp" alt="Sword"><span>Sword</span></button>
-                    <button class="tab-btn theme-axe" onclick="switchTab(this, 'axe')"><img src="Axe.webp" alt="Axe"><span>Axe</span></button>
-                    <button class="tab-btn theme-diapot" onclick="switchTab(this, 'diapot')"><img src="DiaPot.webp" alt="DiaPot"><span>DiaPot</span></button>
-                    <button class="tab-btn theme-nethpot" onclick="switchTab(this, 'nethpot')"><img src="NethPot.webp" alt="NethPot"><span>NethPot</span></button>
-                    <button class="tab-btn theme-uhc" onclick="switchTab(this, 'uhc')"><img src="UHC.webp" alt="UHC"><span>UHC</span></button>
-                    <button class="tab-btn theme-smp" onclick="switchTab(this, 'smp')"><img src="SMP.webp" alt="SMP"><span>SMP</span></button>
-                    <button class="tab-btn theme-mace" onclick="switchTab(this, 'mace')"><img src="Mace.webp" alt="Mace"><span>Mace</span></button>
-                    <button class="tab-btn theme-spearmace" onclick="switchTab(this, 'spearmace')"><img src="Spear Mace.webp" alt="Spearmace"><span>Spearmace</span></button>
+                    <button class="tab-btn active theme-overall" onclick="switchTab(this, 'overall')"><img src="https://cdn.discordapp.com/emojis/1540325117547118683.png" alt="Overall"><span>Overall</span></button>
+                    <button class="tab-btn theme-crystal" onclick="switchTab(this, 'crystal')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316507202916372/1538597751850401803.webp?ex=6a898309&is=6a883189&hm=6526a72e9261e7671698f998cd88d38d654880d6c43793b894318d54aa0671ad&" alt="Crystal"><span>Crystal</span></button>
+                    <button class="tab-btn theme-sword" onclick="switchTab(this, 'sword')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316508406808693/1540315419385004112.webp?ex=6a898309&is=6a883189&hm=3636db2b14e685d6bbad72eaac252a129b7a1666c464690b24872448934a95f9&" alt="Sword"><span>Sword</span></button>
+                    <button class="tab-btn theme-axe" onclick="switchTab(this, 'axe')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316553185075321/1540315428881170464.webp?ex=6a898313&is=6a883193&hm=c79acc77fc74185d0c1338d0b5d340e6731daf26007cad4287615f7478aa88ed" alt="Axe"><span>Axe</span></button>
+                    <button class="tab-btn theme-diapot" onclick="switchTab(this, 'diapot')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316507614085180/1540315415119667202.webp?ex=6a898309&is=6a883189&hm=c299adb7352bea125d649cf6b4ac80df4ea02e4302fe4544490286aa616b36e6&" alt="DiaPot"><span>DiaPot</span></button>
+                    <button class="tab-btn theme-nethpot" onclick="switchTab(this, 'nethpot')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316277850120263/1540315430818676747.webp?ex=6a8982d2&is=6a883152&hm=b626ba5a6fee6ca7fa1efd282038d3e741c26b8056158468972be04ef27d2679" alt="NethPot"><span>NethPot</span></button>
+                    <button class="tab-btn theme-uhc" onclick="switchTab(this, 'uhc')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316510088601610/1540315426796343316.webp?ex=6a898309&is=6a883189&hm=3317a6a74d66a9fe1b0774ed84b9b07184fc45d181fd702179a19b30d7153185&" alt="UHC"><span>UHC</span></button>
+                    <button class="tab-btn theme-smp" onclick="switchTab(this, 'smp')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316509568499772/1540315422178672711.webp?ex=6a898309&is=6a883189&hm=1caf2d6578f30e2bcb9fb6509abb858414a269a7036b4ac2ab45011b04d3e24d&" alt="SMP"><span>SMP</span></button>
+                    <button class="tab-btn theme-mace" onclick="switchTab(this, 'mace')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316508004163655/1540315417313026098.webp?ex=6a898309&is=6a883189&hm=d1d41fd4d495a04787ceb8a285e638e04b0d6f701d86b5d1d30196ab15109fff&" alt="Mace"><span>Mace</span></button>
+                    <button class="tab-btn theme-spearmace" onclick="switchTab(this, 'spearmace')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540321848460312587/Gemini_Generated_Image_yjfwccyjfwccyjfw.jpg.webp?ex=6a898802&is=6a883682&hm=8353cdefec2c9fcae375041d239ba7ee0034e45b95b6d8eea45e375de4035976" alt="Spearmace"><span>Spearmace</span></button>
                 </div>
             </div>
 
             <div id="leaderboard-container"></div>
         </section>
 
-        <!-- WEBPI IMAGE COLLECTION GALLERY SECTION -->
-        <section id="gallery" class="gallery-section page-section morph-section">
-            <h1>My WebP Collection</h1>
-            <div class="grid">
-                <div class="card"><img src="Axe.webp" alt="Axe"><p>Axe.webp</p></div>
-                <div class="card"><img src="Crystal.webp" alt="Crystal"><p>Crystal.webp</p></div>
-                <div class="card"><img src="DiaPot.webp" alt="DiaPot"><p>DiaPot.webp</p></div>
-                <div class="card"><img src="Mace.webp" alt="Mace"><p>Mace.webp</p></div>
-                <div class="card"><img src="NethPot.webp" alt="NethPot"><p>NethPot.webp</p></div>
-                <div class="card"><img src="Overall.webp" alt="Overall"><p>Overall.webp</p></div>
-                <div class="card"><img src="SMP.webp" alt="SMP"><p>SMP.webp</p></div>
-                <div class="card"><img src="Spear Mace.webp" alt="Spear Mace"><p>Spear Mace.webp</p></div>
-                <div class="card"><img src="Sword.webp" alt="Sword"><p>Sword.webp</p></div>
-                <div class="card"><img src="UHC.webp" alt="UHC"><p>UHC.webp</p></div>
-            </div>
-        </section>
-
+        <!-- About Section -->
         <section id="about" class="page-section morph-section">
             <h2 class="section-title">ABOUT US</h2>
             <p class="section-subtitle">Discover the #1 Sri Lankan 1.9 PvP Community</p>
@@ -1023,6 +975,7 @@
             </div>
         </section>
 
+        <!-- Team Section -->
         <section id="team" class="page-section morph-section">
             <h2 class="section-title">OUR TEAM</h2>
             <p class="section-subtitle">Meet the staff members behind our network.</p>
@@ -1081,10 +1034,12 @@
         </section>
     </div>
 
+    <!-- FOOTER WITH ADMIN BUTTON -->
     <footer>
         <button class="footer-admin-btn" onclick="accessAdminPanel()">Admin Panel</button>
     </footer>
 
+    <!-- PLAYER PROFILE MODAL POPUP -->
     <div id="profile-modal" class="modal-overlay" onclick="closeProfileModalOnBackdrop(event)">
         <div id="modal-content-box" class="modal-content">
             <button class="modal-close" onclick="closeProfileModal()">&times;</button>
@@ -1112,13 +1067,16 @@
         </div>
     </div>
 
+    <!-- ADMIN PANEL HUD -->
     <div id="admin-fullscreen-hud" class="admin-fullscreen-hud" onclick="closeAdminHUDOnBackdrop(event)">
         <div class="admin-hud-container">
             <button class="modal-close" onclick="closeAdminHUD()">&times;</button>
             <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: 1.8rem;">NETWORK ADMIN PANEL</h2>
 
             <div class="admin-main-layout">
+                <!-- LEFT COLUMN: CONTROLS -->
                 <div>
+                    <!-- ADD PLAYER FORM -->
                     <h3 style="font-size: 0.95rem; color: #3b82f6; margin-bottom: 0.8rem;">Add New Player</h3>
                     <div class="admin-form-grid">
                         <div class="admin-form-group">
@@ -1142,6 +1100,7 @@
 
                     <hr class="admin-section-divider">
 
+                    <!-- ASSIGN TIERS FORM -->
                     <h3 style="font-size: 0.95rem; color: #a855f7; margin-bottom: 0.8rem;">Assign / Remove Tiers</h3>
                     <div class="admin-form-grid">
                         <div class="admin-form-group">
@@ -1185,6 +1144,7 @@
                     </div>
                 </div>
 
+                <!-- RIGHT COLUMN: REFERENCE TABLES -->
                 <div class="admin-reference-panel">
                     <div class="admin-ref-section">
                         <h4>Title Thresholds</h4>
@@ -1215,16 +1175,16 @@
 
     <script>
         const icons = {
-            overall: 'Overall.webp',
-            crystal: 'Crystal.webp',
-            sword: 'Sword.webp',
-            axe: 'Axe.webp',
-            diapot: 'DiaPot.webp',
-            nethpot: 'NethPot.webp',
-            uhc: 'UHC.webp',
-            smp: 'SMP.webp',
-            mace: 'Mace.webp',
-            spearmace: 'Spear Mace.webp'
+            overall: 'https://cdn.discordapp.com/emojis/1540325117547118683.png',
+            crystal: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316507202916372/1538597751850401803.webp?ex=6a898309&is=6a883189&hm=6526a72e9261e7671698f998cd88d38d654880d6c43793b894318d54aa0671ad&',
+            sword: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316508406808693/1540315419385004112.webp?ex=6a898309&is=6a883189&hm=3636db2b14e685d6bbad72eaac252a129b7a1666c464690b24872448934a95f9&',
+            axe: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316553185075321/1540315428881170464.webp?ex=6a898313&is=6a883193&hm=c79acc77fc74185d0c1338d0b5d340e6731daf26007cad4287615f7478aa88ed',
+            diapot: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316507614085180/1540315415119667202.webp?ex=6a898309&is=6a883189&hm=c299adb7352bea125d649cf6b4ac80df4ea02e4302fe4544490286aa616b36e6&',
+            nethpot: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316277850120263/1540315430818676747.webp?ex=6a8982d2&is=6a883152&hm=b626ba5a6fee6ca7fa1efd282038d3e741c26b8056158468972be04ef27d2679',
+            uhc: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316510088601610/1540315426796343316.webp?ex=6a898309&is=6a883189&hm=3317a6a74d66a9fe1b0774ed84b9b07184fc45d181fd702179a19b30d7153185&',
+            smp: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316509568499772/1540315422178672711.webp?ex=6a898309&is=6a883189&hm=1caf2d6578f30e2bcb9fb6509abb858414a269a7036b4ac2ab45011b04d3e24d&',
+            mace: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316508004163655/1540315417313026098.webp?ex=6a898309&is=6a883189&hm=d1d41fd4d495a04787ceb8a285e638e04b0d6f701d86b5d1d30196ab15109fff&',
+            spearmace: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540321848460312587/Gemini_Generated_Image_yjfwccyjfwccyjfw.jpg.webp?ex=6a898802&is=6a883682&hm=8353cdefec2c9fcae375041d239ba7ee0034e45b95b6d8eea45e375de4035976'
         };
 
         const tierPointsMapping = {
@@ -1460,6 +1420,7 @@
         function closeProfileModal() { document.getElementById('profile-modal').classList.remove('active'); }
         function closeProfileModalOnBackdrop(event) { if (event.target.id === 'profile-modal') closeProfileModal(); }
 
+        /* ADMIN PANEL LOGIC */
         function accessAdminPanel() {
             const pwd = prompt("Enter Admin Password:");
             if (pwd === "4dmin_S3cr3t!_2026") {
