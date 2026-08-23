@@ -207,6 +207,7 @@
             width: 22px;
             height: 22px;
             object-fit: contain;
+            image-rendering: pixelated;
         }
 
         .tab-btn:hover {
@@ -325,6 +326,7 @@
             width: 16px;
             height: 16px;
             object-fit: contain;
+            image-rendering: pixelated;
         }
 
         .tier-color-1 { color: #ffd700 !important; }
@@ -926,16 +928,16 @@
         <section class="mctiers-container">
             <div class="tabs-wrapper">
                 <div class="tabs-header">
-                    <button class="tab-btn active theme-overall" onclick="switchTab(this, 'overall')"><img src="https://cdn.discordapp.com/emojis/1540325117547118683.png" alt="Overall"><span>Overall</span></button>
-                    <button class="tab-btn theme-crystal" onclick="switchTab(this, 'crystal')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316507202916372/1538597751850401803.webp?ex=6a898309&is=6a883189&hm=6526a72e9261e7671698f998cd88d38d654880d6c43793b894318d54aa0671ad&" alt="Crystal"><span>Crystal</span></button>
-                    <button class="tab-btn theme-sword" onclick="switchTab(this, 'sword')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316508406808693/1540315419385004112.webp?ex=6a898309&is=6a883189&hm=3636db2b14e685d6bbad72eaac252a129b7a1666c464690b24872448934a95f9&" alt="Sword"><span>Sword</span></button>
-                    <button class="tab-btn theme-axe" onclick="switchTab(this, 'axe')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316553185075321/1540315428881170464.webp?ex=6a898313&is=6a883193&hm=c79acc77fc74185d0c1338d0b5d340e6731daf26007cad4287615f7478aa88ed" alt="Axe"><span>Axe</span></button>
-                    <button class="tab-btn theme-diapot" onclick="switchTab(this, 'diapot')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316507614085180/1540315415119667202.webp?ex=6a898309&is=6a883189&hm=c299adb7352bea125d649cf6b4ac80df4ea02e4302fe4544490286aa616b36e6&" alt="DiaPot"><span>DiaPot</span></button>
-                    <button class="tab-btn theme-nethpot" onclick="switchTab(this, 'nethpot')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316277850120263/1540315430818676747.webp?ex=6a8982d2&is=6a883152&hm=b626ba5a6fee6ca7fa1efd282038d3e741c26b8056158468972be04ef27d2679" alt="NethPot"><span>NethPot</span></button>
-                    <button class="tab-btn theme-uhc" onclick="switchTab(this, 'uhc')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316510088601610/1540315426796343316.webp?ex=6a898309&is=6a883189&hm=3317a6a74d66a9fe1b0774ed84b9b07184fc45d181fd702179a19b30d7153185&" alt="UHC"><span>UHC</span></button>
-                    <button class="tab-btn theme-smp" onclick="switchTab(this, 'smp')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316509568499772/1540315422178672711.webp?ex=6a898309&is=6a883189&hm=1caf2d6578f30e2bcb9fb6509abb858414a269a7036b4ac2ab45011b04d3e24d&" alt="SMP"><span>SMP</span></button>
-                    <button class="tab-btn theme-mace" onclick="switchTab(this, 'mace')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540316508004163655/1540315417313026098.webp?ex=6a898309&is=6a883189&hm=d1d41fd4d495a04787ceb8a285e638e04b0d6f701d86b5d1d30196ab15109fff&" alt="Mace"><span>Mace</span></button>
-                    <button class="tab-btn theme-spearmace" onclick="switchTab(this, 'spearmace')"><img src="https://cdn.discordapp.com/attachments/1520087164002763013/1540321848460312587/Gemini_Generated_Image_yjfwccyjfwccyjfw.jpg.webp?ex=6a898802&is=6a883682&hm=8353cdefec2c9fcae375041d239ba7ee0034e45b95b6d8eea45e375de4035976" alt="Spearmace"><span>Spearmace</span></button>
+                    <button class="tab-btn active theme-overall" onclick="switchTab(this, 'overall')"><img src="https://minecraft.wiki/images/Nether_Star.gif" alt="Overall"><span>Overall</span></button>
+                    <button class="tab-btn theme-crystal" onclick="switchTab(this, 'crystal')"><img src="https://minecraft.wiki/images/End_Crystal.gif" alt="Crystal"><span>Crystal</span></button>
+                    <button class="tab-btn theme-sword" onclick="switchTab(this, 'sword')"><img src="https://minecraft.wiki/images/Netherite_Sword.png" alt="Sword"><span>Sword</span></button>
+                    <button class="tab-btn theme-axe" onclick="switchTab(this, 'axe')"><img src="https://minecraft.wiki/images/Netherite_Axe.png" alt="Axe"><span>Axe</span></button>
+                    <button class="tab-btn theme-diapot" onclick="switchTab(this, 'diapot')"><img src="https://minecraft.wiki/images/Splash_Potion_of_Healing_II.png" alt="DiaPot"><span>DiaPot</span></button>
+                    <button class="tab-btn theme-nethpot" onclick="switchTab(this, 'nethpot')"><img src="https://minecraft.wiki/images/Splash_Potion_of_Strength.png" alt="NethPot"><span>NethPot</span></button>
+                    <button class="tab-btn theme-uhc" onclick="switchTab(this, 'uhc')"><img src="https://minecraft.wiki/images/Golden_Apple.png" alt="UHC"><span>UHC</span></button>
+                    <button class="tab-btn theme-smp" onclick="switchTab(this, 'smp')"><img src="https://minecraft.wiki/images/Shield.png" alt="SMP"><span>SMP</span></button>
+                    <button class="tab-btn theme-mace" onclick="switchTab(this, 'mace')"><img src="https://minecraft.wiki/images/Mace.png" alt="Mace"><span>Mace</span></button>
+                    <button class="tab-btn theme-spearmace" onclick="switchTab(this, 'spearmace')"><img src="https://minecraft.wiki/images/Trident.png" alt="Spearmace"><span>Spearmace</span></button>
                 </div>
             </div>
 
@@ -1144,16 +1146,16 @@
 
     <script>
         const icons = {
-            overall: 'https://cdn.discordapp.com/emojis/1540325117547118683.png',
-            crystal: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316507202916372/1538597751850401803.webp?ex=6a898309&is=6a883189&hm=6526a72e9261e7671698f998cd88d38d654880d6c43793b894318d54aa0671ad&',
-            sword: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316508406808693/1540315419385004112.webp?ex=6a898309&is=6a883189&hm=3636db2b14e685d6bbad72eaac252a129b7a1666c464690b24872448934a95f9&',
-            axe: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316553185075321/1540315428881170464.webp?ex=6a898313&is=6a883193&hm=c79acc77fc74185d0c1338d0b5d340e6731daf26007cad4287615f7478aa88ed',
-            diapot: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316507614085180/1540315415119667202.webp?ex=6a898309&is=6a883189&hm=c299adb7352bea125d649cf6b4ac80df4ea02e4302fe4544490286aa616b36e6&',
-            nethpot: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316277850120263/1540315430818676747.webp?ex=6a8982d2&is=6a883152&hm=b626ba5a6fee6ca7fa1efd282038d3e741c26b8056158468972be04ef27d2679',
-            uhc: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316510088601610/1540315426796343316.webp?ex=6a898309&is=6a883189&hm=3317a6a74d66a9fe1b0774ed84b9b07184fc45d181fd702179a19b30d7153185&',
-            smp: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316509568499772/1540315422178672711.webp?ex=6a898309&is=6a883189&hm=1caf2d6578f30e2bcb9fb6509abb858414a269a7036b4ac2ab45011b04d3e24d&',
-            mace: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540316508004163655/1540315417313026098.webp?ex=6a898309&is=6a883189&hm=d1d41fd4d495a04787ceb8a285e638e04b0d6f701d86b5d1d30196ab15109fff&',
-            spearmace: 'https://cdn.discordapp.com/attachments/1520087164002763013/1540321848460312587/Gemini_Generated_Image_yjfwccyjfwccyjfw.jpg.webp?ex=6a898802&is=6a883682&hm=8353cdefec2c9fcae375041d239ba7ee0034e45b95b6d8eea45e375de4035976'
+            overall: 'https://minecraft.wiki/images/Nether_Star.gif',
+            crystal: 'https://minecraft.wiki/images/End_Crystal.gif',
+            sword: 'https://minecraft.wiki/images/Netherite_Sword.png',
+            axe: 'https://minecraft.wiki/images/Netherite_Axe.png',
+            diapot: 'https://minecraft.wiki/images/Splash_Potion_of_Healing_II.png',
+            nethpot: 'https://minecraft.wiki/images/Splash_Potion_of_Strength.png',
+            uhc: 'https://minecraft.wiki/images/Golden_Apple.png',
+            smp: 'https://minecraft.wiki/images/Shield.png',
+            mace: 'https://minecraft.wiki/images/Mace.png',
+            spearmace: 'https://minecraft.wiki/images/Trident.png'
         };
 
         const tierPointsMapping = {
